@@ -1,10 +1,9 @@
 <h2>Tasks</h2>
-
-
+<%= link_to "new task", new_task_path %>
 
 <ol>
   <%@tasks.each do |task| %>
     <li>
-      <%=link_to task.title, tasks_path(task) %>compléter: <strong> <%= task.completed%></strong>
+      <%=link_to task.title, task_path(task) %>compléter: <strong> <%= task.completed%></strong> <%= link_to "supprimer" ,task_path(task),data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }%>
     <% end %>
 </ol>
